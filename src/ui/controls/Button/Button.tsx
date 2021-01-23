@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./Button.module.scss";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  colorScheme?: "primary" | "secondary";
+  colorScheme?: "primary" | "secondary" | "delete";
 }
 
 const Button: React.FC<Props> = ({children, colorScheme = "secondary", ...props}) => {

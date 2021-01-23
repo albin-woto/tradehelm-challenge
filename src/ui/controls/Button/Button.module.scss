@@ -1,5 +1,6 @@
 .container {
   padding: 0.75rem 2.25rem;
+  margin: 0 0.5rem;
   cursor: pointer;
   font-size: 1.125rem;
   font-weight: 500;
@@ -22,6 +23,16 @@
 
     &:hover {
       background-color: gainsboro;
+    }
+  }
+
+  &.delete {
+    background-color: #da5253;
+    outline-color: #c70202;
+    color: white;
+
+    &:hover {
+      background-color: red;
     }
   }
 }
