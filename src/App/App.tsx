@@ -4,6 +4,7 @@ import api from "../Item/api";
 import {Item} from "../Item/types";
 import Button from "../ui/controls/Button";
 import Modal, {ModalFooter} from "../ui/controls/Modal";
+import TextField from "../ui/inputs/TextField";
 
 import styles from "./App.module.scss";
 
@@ -60,7 +61,7 @@ const App: React.FC = () => {
         <Modal onClose={() => toggleModal(false)}>
           <form>
             <label>Add Item</label>
-            <input type="text" />
+            <TextField autoFocus name="text" />
             <ModalFooter>
               <Button colorScheme="primary" type="submit">
                 Add
