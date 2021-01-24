@@ -2,6 +2,7 @@ import * as React from "react";
 
 import api from "../Item/api";
 import {Item} from "../Item/types";
+import List, {ListItem} from "../Item/components";
 import Button from "../ui/controls/Button";
 import Modal, {ModalFooter} from "../ui/controls/Modal";
 import TextField from "../ui/inputs/TextField";
@@ -58,14 +59,13 @@ const App: React.FC = () => {
       <header className={styles.header}>
         <h1>Supermarket List</h1>
         <h3>{items.length} item(s)</h3>
-        <ul>
+        <List>
           {items.map(({id, text}) => (
-            <li key={id}>
+            <ListItem key={id} onRemove={() => removeItem(id)}>
               <span>{text}</span>
-              <button onClick={() => removeItem(id)}>Delete</button>
-            </li>
+            </ListItem>
           ))}
-        </ul>
+        </List>
       </header>
       <Button colorScheme="primary" onClick={() => toggleModal(true)}>
         Add Item
