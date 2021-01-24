@@ -1,3 +1,5 @@
+@import "../../ui/assets/Animations.module.scss";
+
 .container {
   margin: 1.5rem 0;
   padding: 0;
@@ -7,5 +9,8 @@
 .image {
   width: 70%;
   height: auto;
+  min-height: 200px;
   margin-top: 1rem;
+  -webkit-animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }

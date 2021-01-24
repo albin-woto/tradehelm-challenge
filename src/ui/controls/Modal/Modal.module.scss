@@ -1,3 +1,5 @@
+@import "../../assets/Animations.module.scss";
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -24,6 +26,9 @@
     z-index: 1;
     background-color: white;
     border-radius: 0.25rem;
+    -webkit-animation: swing-from-top 0.5s
+      cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation: swing-from-top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
   }
 
   label {
