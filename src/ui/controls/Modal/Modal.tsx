@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Modal: React.FC<Props> = ({children, onClose}) => (
-  <section className={styles.container}>
+  <section className={styles.container} onKeyDown={(e) => e.key === "Escape" && onClose()}>
     <b onClick={onClose} />
     <article>{children}</article>
   </section>
