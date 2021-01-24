@@ -51,6 +51,11 @@ const App: React.FC = () => {
     });
   }, []);
 
+  // keep items up to date in localStorage
+  React.useEffect(() => {
+    localStorage.setItem("localItems", JSON.stringify(items));
+  }, [items]);
+
   if (status === Status.Init) {
     return <span>Loading...</span>;
   }

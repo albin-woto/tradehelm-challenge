@@ -15,8 +15,11 @@ const MOCK: Item[] = [
   },
 ];
 
+const retrievedItems: string | null = localStorage.getItem("localItems");
+const localItems: Item[] = retrievedItems !== null ? JSON.parse(retrievedItems) : MOCK;
+
 export default {
-  list: (): Promise<Item[]> => Promise.resolve(MOCK),
+  list: (): Promise<Item[]> => Promise.resolve(localItems),
   create: (text: Item["text"]): Promise<Item> => Promise.resolve({id: +new Date(), text}),
   removeItem: (id: Item["id"]): Promise<Item["id"]> => Promise.resolve(id),
   removeAll: (): Promise<Item[]> => Promise.resolve([]),
