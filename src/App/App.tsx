@@ -6,6 +6,7 @@ import List, {ListItem} from "../Item/components";
 import Button from "../ui/controls/Button";
 import Modal, {ModalFooter} from "../ui/controls/Modal";
 import TextField from "../ui/inputs/TextField";
+import ThemeToggle from "../ui/dark-mode/ThemeToggle";
 
 import styles from "./App.module.scss";
 
@@ -89,6 +90,7 @@ const App: React.FC = () => {
           </form>
         </Modal>
       )}
+      <ThemeToggle />
     </main>
   );
 };
