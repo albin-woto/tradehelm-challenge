@@ -1,7 +1,9 @@
 ![Tradehelm](./public/logo.svg "TradeHelm")
 
+### Podés ver [mi solución subida a vercel](https://tradehelm-challenge.vercel.app/).
 En el camino desde mi casa al supermercado, mi cerebro pierde la capacidad de retener información, por ende necesito hacer una aplicación que se encargue de esa difícil tarea. No, no puedo usar Google Keep, Evernote, nada, soy dev, la tengo que hacer, además esto es un challenge así que agarrá la pala.
 
+---
 ### La aplicación debe:
 * Mostrar un formulario para agregar elementos a la lista.
 * Poder borrar cada elemento de la lista independientemente.
