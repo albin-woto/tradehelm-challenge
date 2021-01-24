@@ -20,3 +20,15 @@ body {
 * {
   box-sizing: border-box;
 }
+
+/* Dark Mode */
+body.dark-mode {
+  color: #fafafa;
+  background-color: #1e1e1e;
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+/* Reverse colors for buttons */
+body.dark-mode button[class*="Button"] {
+  filter: invert(100%) hue-rotate(180deg);
+}
