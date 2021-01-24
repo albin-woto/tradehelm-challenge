@@ -29,6 +29,7 @@ body.dark-mode {
 }
 
 /* Reverse colors for buttons */
-body.dark-mode button[class*="Button"] {
+body.dark-mode button[class*="Button"],
+body.dark-mode img[class*="image"] {
   filter: invert(100%) hue-rotate(180deg);
 }
