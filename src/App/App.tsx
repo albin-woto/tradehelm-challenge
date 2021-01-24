@@ -60,7 +60,7 @@ const App: React.FC = () => {
       <header className={styles.header}>
         <h1>Supermarket List</h1>
         <h3>{items.length} item(s)</h3>
-        <List>
+        <List empty={items.length === 0 ? true : false}>
           {items.map(({id, text}) => (
             <ListItem key={id} onRemove={() => removeItem(id)}>
               <span>{text}</span>
