@@ -12,6 +12,9 @@ enum Status {
   Init = "init",
   Success = "Success",
 }
+interface Form extends HTMLFormElement {
+  text: HTMLInputElement;
+}
 
 const App: React.FC = () => {
   const [items, setItems] = React.useState<Item[]>([]);
@@ -24,6 +27,19 @@ const App: React.FC = () => {
 
   function removeAll() {
     api.removeAll().then(() => setItems([]));
+  }
+
+  function addItem(event: React.FormEvent<Form>) {
+    event.preventDefault();
+
+    const text = event.currentTarget.text.value.trim();
+
+    if (!text) return;
+
+    api.create(text).then((item) => {
+      setItems([...items, item]);
+      toggleModal(false);
+    });
   }
 
   React.useEffect(() => {
@@ -59,7 +75,7 @@ const App: React.FC = () => {
       </Button>
       {isModalVisible && (
         <Modal onClose={() => toggleModal(false)}>
-          <form>
+          <form onSubmit={addItem}>
             <label>Add Item</label>
             <TextField autoFocus name="text" />
             <ModalFooter>
