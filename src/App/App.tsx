@@ -68,7 +68,7 @@ const App: React.FC = () => {
           ))}
         </List>
       </header>
-      <Button colorScheme="primary" onClick={() => toggleModal(true)}>
+      <Button autoFocus colorScheme="primary" onClick={() => toggleModal(true)}>
         Add Item
       </Button>
       <Button colorScheme="delete" onClick={() => removeAll()}>
