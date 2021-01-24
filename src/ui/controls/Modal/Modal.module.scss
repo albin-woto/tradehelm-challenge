@@ -1,0 +1,36 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  b {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  article {
+    width: 100%;
+    max-width: 30rem;
+    padding: 1.5rem;
+    z-index: 1;
+    background-color: white;
+    border-radius: 0.25rem;
+  }
+
+  label {
+    display: block;
+    color: #1e1e1e;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+}
