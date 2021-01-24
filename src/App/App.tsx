@@ -68,11 +68,11 @@ const App: React.FC = () => {
           ))}
         </List>
       </header>
-      <Button autoFocus colorScheme="primary" onClick={() => toggleModal(true)}>
-        Add Item
-      </Button>
       <Button colorScheme="delete" onClick={() => removeAll()}>
         Remove All
+      </Button>
+      <Button autoFocus colorScheme="primary" onClick={() => toggleModal(true)}>
+        Add Item
       </Button>
       {isModalVisible && (
         <Modal onClose={() => toggleModal(false)}>
@@ -80,11 +80,11 @@ const App: React.FC = () => {
             <label>Add Item</label>
             <TextField autoFocus name="text" />
             <ModalFooter>
+              <Button type="button" onClick={() => toggleModal(false)}>
+                Close
+              </Button>
               <Button colorScheme="primary" type="submit">
                 Add
-              </Button>
-              <Button type="button" onClick={() => toggleModal(false)}>
-                Cancel
               </Button>
             </ModalFooter>
           </form>
