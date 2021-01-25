@@ -58,6 +58,7 @@ const App: React.FC = () => {
       setItems(items);
       setStatus(Success);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // keep items up to date in localStorage
