@@ -1,4 +1,4 @@
-#toggle {
+.toggle {
   height: fit-content;
   margin: 2rem 0;
   display: flex;
@@ -6,9 +6,7 @@
   justify-content: center;
   outline: none;
   -webkit-tap-highlight-color: transparent;
-}
 
-.toggle {
   // Remove input checkbox
   &__input {
     visibility: hidden;
