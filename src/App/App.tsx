@@ -11,8 +11,9 @@ import ThemeToggle from "../ui/dark-mode/ThemeToggle";
 import styles from "./App.module.scss";
 
 enum Status {
-  Init = "init",
+  Init = "Init",
   Success = "Success",
+  Removing = "Removing",
 }
 interface Form extends HTMLFormElement {
   text: HTMLInputElement;
@@ -56,9 +57,9 @@ const App: React.FC = () => {
     localStorage.setItem("localItems", JSON.stringify(items));
   }, [items]);
 
-  if (status === Status.Init) {
-    return <span>Loading...</span>;
-  }
+  // if (status === Status.Init) {
+  //   return <span>Loading...</span>;
+  // }
 
   return (
     <main className={styles.container}>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import emptyImage from "../../ui/assets/empty_shopping_list.svg";
+import emptyImage from "../../assets/empty_shopping_list.svg";
 
 import styles from "./List.module.scss";
 
