@@ -45,6 +45,7 @@ export function ThemeProvider({children}: Props): JSX.Element {
     color: themeColours[themeName].color,
   };
 
+  // Search for theme preference and set it
   useEffect(() => {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 

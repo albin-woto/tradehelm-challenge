@@ -7,15 +7,13 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   onToggle: VoidFunction;
 }
 
-const Toggle: React.FC<Props> = ({id, onToggle, htmlFor}) => (
-  <>
-    <div className={styles.toggle}>
-      <input className={styles.toggle__input} id={id} type="checkbox" onClick={onToggle} />
-      <label aria-label="Toggle" className={styles.toggle__label} htmlFor={htmlFor}>
-        <div className={styles.toggle__ball} />
-      </label>
-    </div>
-  </>
+const Toggle: React.FC<Props> = ({id, htmlFor, onToggle}) => (
+  <div className={styles.toggle}>
+    <input className={styles.toggle__input} id={id} type="checkbox" onClick={onToggle} />
+    <label aria-label="Toggle" className={styles.toggle__label} htmlFor={htmlFor}>
+      <div className={styles.toggle__ball} />
+    </label>
+  </div>
 );
 
 export default Toggle;
