@@ -22,7 +22,7 @@ const resolve = <T>(data: T) =>
   new Promise<T>((resolve) => {
     setTimeout(() => {
       resolve(data);
-    }, 2000);
+    }, 1200);
   });
 
 export default {

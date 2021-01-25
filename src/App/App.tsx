@@ -2,6 +2,7 @@ import * as React from "react";
 
 import api from "../Item/api";
 import {Item} from "../Item/types";
+import StatusContext, {Status} from "../context/StatusContext";
 import List, {ListItem} from "../Item/components";
 import Button from "../ui/controls/Button";
 import Modal, {ModalFooter} from "../ui/controls/Modal";
@@ -11,45 +12,51 @@ import Loader from "../ui//loader/Loader";
 
 import styles from "./App.module.scss";
 
-enum Status {
-  Init = "Init",
-  Success = "Success",
-  Removing = "Removing",
-}
 interface Form extends HTMLFormElement {
   text: HTMLInputElement;
 }
 
 const App: React.FC = () => {
   const [items, setItems] = React.useState<Item[]>([]);
-  const [status, setStatus] = React.useState<Status>(Status.Init);
+  const {status, setStatus} = React.useContext(StatusContext);
   const [isModalVisible, toggleModal] = React.useState<boolean>(false);
+  const {Init, Creating, Removing, Success} = Status;
 
   function removeItem(id: Item["id"]) {
-    api.removeItem(id).then(() => setItems((items) => items.filter((item) => item.id !== id)));
+    setStatus(Removing);
+    api.removeItem(id).then(() => {
+      setItems((items) => items.filter((item) => item.id !== id));
+      setStatus(Success);
+    });
   }
 
   function removeAll() {
-    api.removeAll().then(() => setItems([]));
+    setStatus(Removing);
+    api.removeAll().then(() => {
+      setItems([]);
+      setStatus(Success);
+    });
   }
 
   function addItem(event: React.FormEvent<Form>) {
     event.preventDefault();
+    setStatus(Creating);
 
     const text = event.currentTarget.text.value.trim();
 
     if (!text) return;
 
     api.create(text).then((item) => {
-      setItems([...items, item]);
       toggleModal(false);
+      setItems([...items, item]);
+      setStatus(Success);
     });
   }
 
   React.useEffect(() => {
     api.list().then((items) => {
       setItems(items);
-      setStatus(Status.Success);
+      setStatus(Success);
     });
   }, []);
 
@@ -63,7 +70,7 @@ const App: React.FC = () => {
       <header className={styles.header}>
         <h1>Supermarket List</h1>
         <h3>{items.length} item(s)</h3>
-        {status === Status.Init && <Loader />}
+        {(status === Init || status === Removing) && <Loader />}
       </header>
       <List empty={items.length === 0 ? true : false}>
         {items.map(({id, text}) => (
@@ -88,7 +95,7 @@ const App: React.FC = () => {
                 Close
               </Button>
               <Button colorScheme="primary" type="submit">
-                Add
+                {(status === Status.Creating && <Loader />) || "Add"}
               </Button>
             </ModalFooter>
           </form>
