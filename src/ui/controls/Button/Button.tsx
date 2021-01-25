@@ -15,7 +15,7 @@ const Button: React.FC<Props> = ({children, colorScheme = "secondary", ...props}
   return (
     <button
       className={`${styles.container} ${styles[colorScheme]}`}
-      disabled={isUnavailable ? true : false}
+      disabled={isUnavailable}
       {...props}
     >
       {children}
