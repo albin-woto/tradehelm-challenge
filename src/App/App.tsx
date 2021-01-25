@@ -22,6 +22,7 @@ const App: React.FC = () => {
   const {status, setStatus} = React.useContext(StatusContext);
   const [items, setItems] = React.useState<Item[]>([]);
   const [isModalVisible, toggleModal] = React.useState<boolean>(false);
+  const [input, setInput] = React.useState<string>("");
   const {Init, Creating, Removing, Success} = Status;
 
   function removeItem(id: Item["id"]) {
@@ -43,13 +44,12 @@ const App: React.FC = () => {
   function addItem(event: React.FormEvent<Form>) {
     event.preventDefault();
 
-    const text = event.currentTarget.text.value.trim();
+    if (!input) return;
 
-    if (!text) return;
     setStatus(Creating);
-
-    api.create(text).then((item) => {
+    api.create(input).then((item) => {
       setItems([...items, item]);
+      setInput("");
       toggleModal(false);
       setStatus(Success);
     });
@@ -94,12 +94,17 @@ const App: React.FC = () => {
         <Modal style={styleProperties} onClose={() => toggleModal(false)}>
           <form onSubmit={addItem}>
             <label>Add Item</label>
-            <TextField autoFocus name="text" style={styleProperties} />
+            <TextField
+              autoFocus
+              name="text"
+              style={styleProperties}
+              onChange={(e) => setInput(e.target.value)}
+            />
             <ModalFooter>
               <Button type="button" onClick={() => toggleModal(false)}>
                 Close
               </Button>
-              <Button colorScheme="primary" type="submit">
+              <Button colorScheme="primary" disabled={input ? false : true} type="submit">
                 {(status === Status.Creating && <Loader />) || "Add"}
               </Button>
             </ModalFooter>
