@@ -7,6 +7,7 @@ import Button from "../ui/controls/Button";
 import Modal, {ModalFooter} from "../ui/controls/Modal";
 import TextField from "../ui/inputs/TextField";
 import ThemeToggle from "../ui/dark-mode/ThemeToggle";
+import Loader from "../ui//loader/Loader";
 
 import styles from "./App.module.scss";
 
@@ -57,23 +58,20 @@ const App: React.FC = () => {
     localStorage.setItem("localItems", JSON.stringify(items));
   }, [items]);
 
-  // if (status === Status.Init) {
-  //   return <span>Loading...</span>;
-  // }
-
   return (
     <main className={styles.container}>
       <header className={styles.header}>
         <h1>Supermarket List</h1>
         <h3>{items.length} item(s)</h3>
-        <List empty={items.length === 0 ? true : false}>
-          {items.map(({id, text}) => (
-            <ListItem key={id} onRemove={() => removeItem(id)}>
-              <span>{text}</span>
-            </ListItem>
-          ))}
-        </List>
+        {status === Status.Init && <Loader />}
       </header>
+      <List empty={items.length === 0 ? true : false}>
+        {items.map(({id, text}) => (
+          <ListItem key={id} onRemove={() => removeItem(id)}>
+            <span>{text}</span>
+          </ListItem>
+        ))}
+      </List>
       <Button colorScheme="delete" onClick={() => removeAll()}>
         Remove All
       </Button>
