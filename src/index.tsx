@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import {Provider as StatusProvider} from "./context/StatusContext";
 
 import "./theme.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StatusProvider>
+      <App />
+    </StatusProvider>
   </React.StrictMode>,
   document.getElementById("root"),
 );
