@@ -14,22 +14,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #1e1e1e;
+  /* Theme Initial Colors */
+  /* Light */
+  --background-color: white;
+  --color: #1e1e1e;
+  background-color: var(--background-color);
+  color: var(--color);
 }
 
 * {
   box-sizing: border-box;
-}
-
-/* Dark Mode */
-body.dark-mode {
-  color: #fafafa;
-  background-color: #1e1e1e;
-  filter: invert(100%) hue-rotate(180deg);
-}
-
-/* Reverse colors for buttons */
-body.dark-mode button[class*="Button"],
-body.dark-mode img[class*="image"] {
-  filter: invert(100%) hue-rotate(180deg);
 }
