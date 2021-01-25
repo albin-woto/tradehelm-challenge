@@ -40,15 +40,15 @@ const App: React.FC = () => {
 
   function addItem(event: React.FormEvent<Form>) {
     event.preventDefault();
-    setStatus(Creating);
 
     const text = event.currentTarget.text.value.trim();
 
     if (!text) return;
+    setStatus(Creating);
 
     api.create(text).then((item) => {
-      toggleModal(false);
       setItems([...items, item]);
+      toggleModal(false);
       setStatus(Success);
     });
   }
