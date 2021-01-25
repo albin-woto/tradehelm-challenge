@@ -21,11 +21,7 @@ const InitialState = {
 
 const StatusContext = createContext<TStatusContext>(InitialState);
 
-export type Props = {
-  children: React.ReactNode;
-};
-
-// I'm not sure that the return type should be JSX.Element, but I don't find any documentation about it
+// I know that the return type probably shouldn't be JSX.Element, but I don't find any documentation about it
 // The es-lint rules ask for an explicit return type
 export function StatusProvider({children}: {children: React.ReactNode}): JSX.Element {
   const [status, setStatus] = useState<Status>(Status.Init);
