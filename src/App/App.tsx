@@ -8,7 +8,7 @@ import Button from "../ui/controls/Button";
 import Modal, {ModalFooter} from "../ui/controls/Modal";
 import TextField from "../ui/inputs/TextField";
 import ThemeToggle from "../ui/dark-mode/ThemeToggle";
-import Loader from "../ui//loader/Loader";
+import Loader from "../Loader";
 
 import styles from "./App.module.scss";
 
