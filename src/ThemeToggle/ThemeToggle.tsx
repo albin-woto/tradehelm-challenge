@@ -15,7 +15,7 @@ const ThemeToggle: React.FC = () => {
   };
 
   useEffect(() => {
-    const toggleCheck = document.getElementById("dark-mode-toggle") as HTMLInputElement;
+    const toggleCheck = document.querySelector("#dark-mode-toggle") as HTMLInputElement;
 
     updateToggleSide(toggleCheck);
     // eslint-disable-next-line react-hooks/exhaustive-deps
