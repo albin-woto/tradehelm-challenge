@@ -28,3 +28,30 @@
     margin: 0;
   }
 }
+
+.link {
+  position: relative;
+  text-decoration: none;
+  color: #6c64ff;
+
+  &:hover {
+    color: #827cff;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0.0625rem;
+    bottom: 0;
+    left: 0;
+    background-color: #827cff;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  &:hover::before {
+    visibility: visible;
+    width: 100%;
+  }
+}

@@ -112,6 +112,14 @@ const App: React.FC = () => {
         </Modal>
       )}
       <ThemeToggle />
+      <a
+        className={styles.link}
+        href="https://github.com/albin-woto/tradehelm-challenge"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Code
+      </a>
     </main>
   );
 };
