@@ -1,7 +1,7 @@
 import React, {useEffect, useContext} from "react";
 
 import Toggle from "../ui/controls/Toggle";
-import ThemeContext, {ThemeContextType} from "../context/ThemeContext";
+import ThemeContext, {ThemeContextType} from "../context/theme/ThemeContext";
 
 const ThemeToggle: React.FC = () => {
   const {theme, setTheme} = useContext<ThemeContextType>(ThemeContext);
