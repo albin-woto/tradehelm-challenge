@@ -2,7 +2,7 @@ import * as React from "react";
 
 import api from "../Item/api";
 import {Item} from "../Item/types";
-import StatusContext, {Status} from "../context/StatusContext";
+import StatusContext, {Status} from "../context/status/StatusContext";
 import ThemeContext from "../context/ThemeContext";
 import List, {ListItem} from "../Item/components";
 import Button from "../ui/controls/Button";

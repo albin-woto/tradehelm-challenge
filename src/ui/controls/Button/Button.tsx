@@ -1,6 +1,6 @@
 import React from "react";
 
-import StatusContext, {Status} from "../../../context/StatusContext";
+import StatusContext, {Status} from "../../../context/status/StatusContext";
 
 import styles from "./Button.module.scss";
 

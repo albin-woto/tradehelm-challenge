@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {Provider as StatusProvider} from "./context/StatusContext";
+import {Provider as StatusProvider} from "./context/status/StatusContext";
 import {Provider as ThemeProvider} from "./context/ThemeContext";
 
 import "./theme.css";
